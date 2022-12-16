@@ -1,38 +1,164 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --size: calc(1vh + 1vw);
+  --orange: #FFA500;
+  --darkGrey: #666;
+  --blue: #0071c2;
+  --white: #FFFFFF;
+  --black: #000000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  width: 100%;
+  height: 100%;
   min-height: 100vh;
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.ImageBox {
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.carousel-wrapper {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.ImageTitle {
+  position: absolute;
+  bottom: 7%;
+  left: 3%;
+  padding: 10px;
+  background: rgba(0, 0, 0, .5);
+  font-size: clamp(18px, calc(var(--size)*1.2), 28px);
+  color: var(--orange);
+  text-align: center;
+  text-shadow: 0px 4px 3px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+}
+
+.Container {
+  width: 800px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Separator {
+  width: 800px;
+  height: 3px;
+  margin: 20px 0px;
+  background: var(--darkGrey);
+}
+
+h1 {
+  text-align: center;
+  font-size: clamp(22px, calc(var(--size)*1.7), 38px);
+  color: var(--darkGrey);
+}
+
+h2 {
+  display: inline-block;
+  padding: 3px 0px;
+  border-bottom: 1px solid var(--darkGrey);
+  font-size: clamp(20px, calc(var(--size)*1.2), 28px);
+  color: var(--darkGrey);
+}
+
+.HotelsNumber {
+  display: inline-block;
+  font-size: clamp(22px, calc(var(--size)*1.7), 44px);
+  font-weight: bold;
+  background: var(--orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 4px 3px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+}
+
+.Subtitle {
+  font-size: clamp(14px, calc(var(--size)*1.2), 24px);
+  text-align: center;
+  font-style: italic;
+  color: var(--darkGrey);
+  padding: 10px;
+}
+
+.Description {
+  font-size: clamp(14px, calc(var(--size)*1.2), 22px);
+  color: var(--darkGrey);
+  text-indent: 30px;
+}
+
+.Description::first-letter {
+  font-size: clamp(18px, calc(var(--size)*1.2), 28px);
+  font-weight: bold;
+}
+
+.Image {
+  width: 770px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.Btn {
+  padding: 10px 25px;
+  border: none;
+  background: var(--blue);
+  font-size: clamp(18px, calc(var(--size)*1.2), 24px);
+  font-weight: normal;
+  color: var(--white);
+  text-shadow: 0px 4px 3px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  transition: all .2s ease-in-out;
+}
+
+.Btn:hover {
+  transform: translateY(-7px);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  color: var(--orange);
+}
+
+.showBtn {
+  border: none;
+  background: transparent;
+  font-size: clamp(14px, calc(var(--size)*1.2), 20px);
+  color: var(--blue);
+}
+
+.showBtn::after {
+  display: inline-block;
+  content: "";
+  width: 30px;
+  height: 5px;
+  margin-left: 10px;
+  border-bottom: 1px solid var(--black);
+  border-right: 2px solid var(--black);
+  transform: skew(65deg, 0deg);
+  transition: all .2s ease-in-out;
+}
+
+.showBtn:hover.showBtn::after {
+  transform: translateX(8px) skew(65deg, 0deg);
+}
+
+.whiteSpace {
+  display: inline-block;
+  width: 10px;
+}
+
+@media all and (max-width: 500px) {
+  .Container {
+    width: 400px;
   }
-  to {
-    transform: rotate(360deg);
+  .hotelImage,
+  .Separator,
+  .Image {
+    width: 380px;
   }
 }
